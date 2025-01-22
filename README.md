@@ -33,11 +33,17 @@ To see the options for the script you can run the script with the --help argumen
 python course-cleaner.py --help
 ```
 * **--folder** or **-f** this argument should be followed by a path to your unzipped brightspace package
-* **--sheet** or **-s** this argument should be followed by the path to a stylesheet
-* **--keep** or **-k** follow with a keyword in a stylesheet url to keep like 'bootstrap' *Note:* using something like 'https' here will keep all external style sheets and remove those with relative urls
+* **--sheet** or **-s** this argument should be followed by the path to a stylesheet **(not implemented)**
+* **--keep** or **-k** follow with a keyword in a stylesheet url to keep like 'bootstrap' *Note:* using something like 'https' here will keep all external style sheets and remove those with relative urls. Currently this script is hardcoded to delete all linked stylesheets and add the Template 8 stylesheet.
 * **--links** or **-l** no argument, this flag will make all links open in a new window by adding `target="_blank"`
 * **--clean** or **-c** no argument, this flag will remove non-layout inline style attributes
 * **--debug** or **-d** runs and prints out way too much information about what it would do, but does not alter the files
+
+### Example
+```console
+python course-cleaner.py -f ~/Downloads/MUC-250-Course-Files -l -c
+```
+The above command will run on the MUC-250-Course-Files folder within the users Downloads folder. It will delete all linked style sheets in every html page within that folder (recursive), update every link in those files, and remove non-layout style attributes in those files.
 
 ## Updating the Course
 * Zip the folder back up and rename it (like adding -cleaned) to the end
